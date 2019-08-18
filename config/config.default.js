@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = appInfo => {
-  const config = exports = {};
+  const config = (exports = {});
 
   // 随机修改任意一个值即可
   config.keys = appInfo.name + '_1547540555445_3889';
@@ -11,7 +11,8 @@ module.exports = appInfo => {
   config.domain = 'http://10.10.10.65:7001'; // 请指定协议
   // 支付宝userid pc登录 https://my.alipay.com/portal/i.htm 右键查看网页源代码搜索 userId 得到的值 和支付宝收款用户绑定
   config.alipayUserId = '2088012748271675';
-  config.payMax = { // 设置随机立减金额，单位为0.01
+  config.payMax = {
+    // 设置随机立减金额，单位为0.01
     wx: 10, // 表示会在订单金额的基础上最多减免 0.01 * 10,减免的金额必须有对应的收款二维码，否则无法下单!
     alipay: 20, // 支付宝可以任意设置减免金额，无需上传二维码!
   };
@@ -30,21 +31,19 @@ module.exports = appInfo => {
     host: '127.0.0.1', // 数据库地址
     port: 3306,
     username: 'root', // 数据库账号
-    password: 'root', // 数据库密码
+    password: '156123', // 数据库密码
     database: 'egg', // 数据库名
     timezone: '+08:00',
   };
   // 百度orc 申请地址 http://ai.baidu.com/tech/ocr 务必修改
   config.baidu = {
     // 设置APPID/AK/SK
-    APP_ID: 'xx',
-    API_KEY: 'xxx',
-    SECRET_KEY: 'xxxx',
+    APP_ID: '17037816',
+    API_KEY: 'ySGFTEqweRdr8W6Xh1rfHOX2',
+    SECRET_KEY: 'sKNNivihMziLtOabLsaeUkgU3PL6m6al',
   };
   // 验证器，请勿修改
-  config.valdate = {
-
-  };
+  config.valdate = {};
   // 安全防护，请勿修改
   config.security = {
     csrf: {
