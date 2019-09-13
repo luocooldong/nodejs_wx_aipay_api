@@ -193,6 +193,16 @@ class OrderController extends Controller {
     }
     ctx.body = { code: 0, data: '', msg: '补单成功!' };
   }
+
+  // 查询订单支付状态
+  async orderPayStatus() {
+    const { ctx, config: { secretkey, payMax, domain, alipayUserId } } = this;
+    const { order_id } = ctx.request.body;
+    console.log('查询订单支付状态', order_id)
+
+  }
+
+
 }
 
 module.exports = OrderController;
