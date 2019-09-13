@@ -198,11 +198,9 @@ class OrderController extends Controller {
   async orderPayStatus() {
     const { ctx, config: { secretkey, payMax, domain, alipayUserId } } = this;
     const { order_id } = ctx.request.body;
-    console.log('查询订单支付状态', order_id)
-
+    console.log('查询订单支付状态, controller层', order_id)
+    const result = await ctx.service.order.order_Pay_Status(order_id);
   }
-
-
 }
 
 module.exports = OrderController;

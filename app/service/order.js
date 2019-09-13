@@ -96,6 +96,23 @@ class OrderService extends Service {
       }
     });
   }
+  async order_Pay_Status(order_id) {  // 用户查询订单支付状态
+
+    const { ctx, app, config: { orderValidity, secretkey } } = this;
+    const { Op } = app.Sequelize;
+    console.log('查询订单支付状态, service层', order_id)
+
+    // try {
+    //   const orderData = await ctx.modle.Orders.findOne({
+    //     where: {
+
+    //     }
+
+    //   })
+    // }
+
+
+  }
 }
 
 module.exports = OrderService;
