@@ -31,7 +31,7 @@ module.exports = appInfo => {
     host: '127.0.0.1', // 数据库地址
     port: 3306,
     username: 'root', // 数据库账号
-    password: 's[9GL7+c#W!w}Vg)', // 数据库密码
+    password: 'WLSYD$ttxqXq9@', // 数据库密码
     database: 'egg', // 数据库名
     timezone: '+08:00',
   };
