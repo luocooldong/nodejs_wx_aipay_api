@@ -14,7 +14,7 @@ class OrderService extends Service {
     }, {
       where: {
         created_at: {
-          [Op.lt]: +new Date() - parseInt(orderValidity) * 60 * 1000,
+          [Op.lt]: +new Date() - orderValidity * 60 * 1000,
         },
         pay_status: '未支付',
       },
@@ -58,7 +58,7 @@ class OrderService extends Service {
           order_type,
           pay_status: '未支付',
           created_at: {
-            [Op.gt]: +new Date() - parseInt(orderValidity) * 60 * 1000,
+            [Op.gt]: +new Date() - orderValidity * 60 * 1000,
           },
         },
       });
@@ -70,7 +70,7 @@ class OrderService extends Service {
           order_type,
           pay_status: '未支付',
           created_at: {
-            [Op.gt]: +new Date() - parseInt(orderValidity) * 60 * 1000,
+            [Op.gt]: +new Date() - orderValidity * 60 * 1000,
           },
         },
       });

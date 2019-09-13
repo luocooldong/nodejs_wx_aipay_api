@@ -107,7 +107,7 @@ class OrderController extends Controller {
           let newPrice = [];
           // 根据设置的随机立减查询二维码
           for (let i = 0; i < payMax.wx; i++) {
-            newPrice.push((tempPrice -= 0.01).toFixed(2));
+            newPrice.push((tempPrice -= 0.1).toFixed(2));
           }
           // 获取有效期内所有的未支付订单
           const QrCodeResult = await ctx.service.order.find_more_price(newPrice, order_type);
@@ -127,7 +127,7 @@ class OrderController extends Controller {
           ctx.body = await ctx.service.order.createOrder(alipay_url[index].dataValues.qr_url, alipay_url[index].dataValues.qr_price);
         }
       } else if (order_type === 'alipay') {
-        const alipays = 'alipays://platformapi/startapp?appId=20000691&url='; // 2019年04月07日 原appid 20000067 替换成 20000691 
+        const alipays = 'alipays://platformapi/startapp?appId=20000691&url='; // 2019年04月07日 原appid 20000067 替换成 20000691
         const url = domain + '/alipay.html?u=' + alipayUserId + '&a=';
         let tempPrice = order_price;
         if (orderPriceStatus.length === 0) {

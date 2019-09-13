@@ -13,11 +13,11 @@ module.exports = appInfo => {
   config.alipayUserId = '2088012748271675';
   config.payMax = {
     // 设置随机立减金额，单位为0.01
-    wx: 10, // 表示会在订单金额的基础上最多减免 0.01 * 10,减免的金额必须有对应的收款二维码，否则无法下单!
+    wx: 20, // 表示会在订单金额的基础上最多减免 0.01 * 10,减免的金额必须有对应的收款二维码，否则无法下单!
     alipay: 20, // 支付宝可以任意设置减免金额，无需上传二维码!
   };
   // 设置 修改 订单有效期
-  config.orderValidity = 5; // 默认是5分钟 整数
+  config.orderValidity = 0.5; // 默认是5分钟 整数
   // 设置 修改 登录用户名和密码，为了节省一张数据表，默认写在配置里
   config.userInfo = {
     username: 'admin', // 账号
