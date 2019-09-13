@@ -22,9 +22,10 @@ class OrderService extends Service {
   }
   async createOrder(qr_url, qr_price) { // 生成支付宝订单
     const { ctx } = this;
-    const { order_id, order_type, order_price, sign, order_name, extension, redirect_url } = ctx.request.body;
+    const { order_id, video_id, order_type, order_price, sign, order_name, extension, redirect_url } = ctx.request.body;
     return ctx.model.Orders.create({
       order_id,
+      video_id,
       order_type,
       order_price,
       sign,
