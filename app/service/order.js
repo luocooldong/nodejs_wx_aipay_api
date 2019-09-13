@@ -114,7 +114,7 @@ class OrderService extends Service {
       const sign = md5(md5(order_id) + secretkey);
       const questBody = {
         orderId: order_id,
-        videoId: video_id,
+        videoUrl: video_id,
       };
       await this.get_redirect_url(redirect_url, questBody);
       // const url = redirect_url + '?order_id=' + order_id  + '&qr_price=' + price + '&extension=' + extension + '&sign=' + sign;
