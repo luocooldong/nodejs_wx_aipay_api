@@ -8,7 +8,7 @@ module.exports = appInfo => {
   // 签名密匙妥善保管，不可泄露，务必修改
   config.secretkey = 'yioMe';
   // 绑定的域名， 务必修改
-  config.domain = 'http://192.168.1.103:7001'; // 请指定协议
+  config.domain = 'http://202.182.110.237:7001'; // 请指定协议
   // 支付宝userid pc登录 https://my.alipay.com/portal/i.htm 右键查看网页源代码搜索 userId 得到的值 和支付宝收款用户绑定
   config.alipayUserId = '2088012748271675';
   config.payMax = {
@@ -31,7 +31,7 @@ module.exports = appInfo => {
     host: '127.0.0.1', // 数据库地址
     port: 3306,
     username: 'root', // 数据库账号
-    password: 'WLSYD$ttxqXq9@', // 数据库密码
+    password: 's[9GL7+c#W!w}Vg)', // 数据库密码
     database: 'egg', // 数据库名
     timezone: '+08:00',
   };

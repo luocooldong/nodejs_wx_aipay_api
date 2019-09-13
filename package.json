@@ -35,7 +35,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-ali_wx_pay",
     "stop": "egg-scripts stop --title=egg-server-ali_wx_pay",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port=8080",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
