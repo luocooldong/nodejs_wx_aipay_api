@@ -107,7 +107,7 @@ class OrderController extends Controller {
           let newPrice = [];
           // 根据设置的随机立减查询二维码
           for (let i = 0; i < payMax.wx; i++) {
-            newPrice.push((tempPrice -= 0.1).toFixed(2));
+            newPrice.push((tempPrice -= 0.01).toFixed(2));
           }
           // 获取有效期内所有的未支付订单
           const QrCodeResult = await ctx.service.order.find_more_price(newPrice, order_type);
