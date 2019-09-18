@@ -125,7 +125,11 @@ class OrderService extends Service {
     }
   }
   async get_redirect_url(redirect_url, questBody) {
-    request.post(
+    let headers = {
+      'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1`,
+    };
+
+    request.set('User-Agent', `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1`).post(
       redirect_url,
       {
         json: questBody
@@ -133,10 +137,14 @@ class OrderService extends Service {
       (error) => {
         if (error) {
           console.log('收款通知失败,请检查redirect_url是否正确!' + redirect_url);
+        }else{
+          console.log('收款成功，已通知服务器' + redirect_url);
         }
-        console.log('收款成功，已通知服务器' + redirect_url);
       }
-    );
+    )
+    // .then((res) => {
+    //   console.log('返回信息' + res.msg);
+    // });
 
     // request.get(redirect_url, error => {
     //   if (error) {
