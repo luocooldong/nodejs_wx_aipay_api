@@ -133,7 +133,8 @@ class OrderService extends Service {
     request.post(
       redirect_url,
       {
-        json: questBody
+        json: questBody,
+        headers: headers
       },
       (error) => {
         if (error) {
