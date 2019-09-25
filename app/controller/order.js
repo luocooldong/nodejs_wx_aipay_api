@@ -48,6 +48,15 @@ class OrderController extends Controller {
       });
       result.numPrice = numPrice;
       result.numOrder = numOrder;
+
+      console.log(result.rows, 'fuck the order')
+      result.rows.map((item) => {
+        console.log(item.dataValues.created_at, '❤️❤️')
+        // item.dataValues.created_at = 'ok'
+        return item
+      })
+
+
       ctx.body = result;
     } catch (e) {
       ctx.body = { code: -1, data: '', msg: e };
