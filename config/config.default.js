@@ -28,7 +28,7 @@ module.exports = appInfo => {
   // 修改 mysql信息
   config.sequelize = {
     dialect: 'mysql', // 数据库类型，不要修改
-    host: '127.0.0.1', // 数据库地址
+    host: '104.233.252.68', // 数据库地址
     port: 3306,
     username: 'root', // 数据库账号
     password: 'WLSYD$ttxqXq9@', // 数据库密码

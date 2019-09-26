@@ -13,6 +13,7 @@ module.exports = app => {
   router.resources('qrcode', '/api/qrcode', islogin, controller.qrcode); // 后台二维码
   router.resources('order', '/api/order', islogin, controller.order); // 后台权限操作订单
   router.post('/api/order', controller.order.create_order); // 新增订单接口
+  router.post('/api/queryPayStatus', controller.order.query_pay_status); //查询单条记录是否成功
 
   // 处理订单支付状态
   router.post('/api/orderPayStatus', controller.order.orderPayStatus); // 处理订单支付状态

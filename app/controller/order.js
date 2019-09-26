@@ -4,6 +4,25 @@ const Controller = require('egg').Controller;
 const md5 = require('md5');
 
 class OrderController extends Controller {
+  // 查询单个交易是否成功
+  async query_pay_status() {
+    const { ctx, app } = this;
+    const { order_id } = ctx.request.body;
+    console.log(order_id, 'hello world')
+    console.log('okokok月亮太阳')
+    // 根据此订单id去查询这条订单是否支付成功
+    try {
+      const orderItem_data = await ctx.model.Orders.findOne({ where: { order_id: order_id } });
+      console.log(orderItem_data, 'hank hooked')
+      if(!orderItem_data) {
+        throw 'order_id不存在';
+      }
+      ctx.body = orderItem_data
+    }catch (e){
+      ctx.body = { code: -1, data: '', msg: e };
+    }
+  }
+
   // 后台查询所有订单
   async index() {
     const { ctx, app } = this;
