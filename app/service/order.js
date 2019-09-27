@@ -33,6 +33,7 @@ class OrderService extends Service {
     const {
       order_id,
       video_id,
+      share_code,
       order_type,
       order_price,
       sign,
@@ -43,6 +44,7 @@ class OrderService extends Service {
     return ctx.model.Orders.create({
       order_id,
       video_id,
+      share_code,
       order_type,
       order_price,
       sign,
@@ -106,6 +108,7 @@ class OrderService extends Service {
       const {
         order_id,
         video_id,
+        share_code,
         qr_price: price,
         extension,
         redirect_url,
@@ -115,6 +118,7 @@ class OrderService extends Service {
       const questBody = {
         orderId: order_id,
         videoUrl: video_id,
+        share_code: share_code
       };
       await this.get_redirect_url(redirect_url, questBody);
       // const url = redirect_url + '?order_id=' + order_id  + '&qr_price=' + price + '&extension=' + extension + '&sign=' + sign;

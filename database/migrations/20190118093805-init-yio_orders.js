@@ -7,6 +7,7 @@ module.exports = {
       id: { type: INTEGER(11), primaryKey: true, autoIncrement: true },
       order_id: { type: STRING(50), allowNull: false },
       video_id: { type: STRING(50), allowNull: false },
+      share_code: { type: STRING(50), allowNull: false },
       order_type: { type: ENUM('wechat', 'alipay'), defaultValue: 'wechat', allowNull: false },
       order_price: { type: DECIMAL(7, 2), allowNull: false },
       order_name: { type: STRING(255), allowNull: false },

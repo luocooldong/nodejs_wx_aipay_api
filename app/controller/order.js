@@ -101,7 +101,7 @@ class OrderController extends Controller {
    */
   async create_order() {
     const { ctx, config: { secretkey, payMax, domain, alipayUserId } } = this;
-    const { order_id, order_type, order_price, sign, redirect_url, video_id } = ctx.request.body;
+    const { order_id, order_type, order_price, sign, redirect_url, video_id, share_code } = ctx.request.body;
     try {
       if (!order_id) {
         throw 'order_id不为空';
