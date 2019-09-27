@@ -118,7 +118,8 @@ class OrderService extends Service {
       const questBody = {
         orderId: order_id,
         videoUrl: video_id,
-        share_code: share_code
+        invitedCode: share_code,
+        price: price
       };
       await this.get_redirect_url(redirect_url, questBody);
       // const url = redirect_url + '?order_id=' + order_id  + '&qr_price=' + price + '&extension=' + extension + '&sign=' + sign;
