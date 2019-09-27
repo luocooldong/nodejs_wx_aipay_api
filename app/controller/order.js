@@ -162,6 +162,9 @@ class OrderController extends Controller {
           if (alipay_url.length === 0) { // 没有可用收款二维码
             throw '系统火爆，请过1-3分钟后下单!';
           }
+
+          alipay_url.sort((firstItem, secondItem) => Number(secondItem.dataValues.qr_price) -  Number(firstItem.dataValues.qr_price) )
+
           // const index = Math.floor((Math.random() * (newPrice.length-1)));
           // 现在不用随机数了，直接取数据中的第一个
           ctx.body = await ctx.service.order.createOrder(alipay_url[0].dataValues.qr_url, alipay_url[0].dataValues.qr_price);
