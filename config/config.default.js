@@ -34,6 +34,12 @@ module.exports = appInfo => {
     password: 'WLSYD$ttxqXq9@', // 数据库密码
     database: 'egg', // 数据库名
     timezone: '+08:00',
+    pool: {
+      max: 16,                             // 最大值
+      min: 0,                          // 最小值
+      acquire: 30000,           //
+      idle: 10000                  // 闲时超时
+    },
   };
   // 百度orc 申请地址 http://ai.baidu.com/tech/ocr 务必修改
   config.baidu = {
