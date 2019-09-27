@@ -127,14 +127,14 @@ class OrderController extends Controller {
           // 此金额可被使用 查出金额对应的 支付qr_url 生成订单
           const qr_data = await ctx.model.Qrcodes.findOne({ where: { qr_type: order_type, qr_price: order_price } });
           if (!qr_data) {
-            throw '订单金额的二维码不存在'; // 订单金额的二维码不存在
+            throw '订单金额的二维码不存在aa'; // 订单金额的二维码不存在
           }
           ctx.body = await ctx.service.order.createOrder(qr_data.get('qr_url'), qr_data.get('qr_price'));
         } else {
           // 此金额已经被使用了，查询其他二维码
           let newPrice = [];
           // 根据设置的随机立减查询二维码
-          for (let i = 0; i < payMax.wx; i++) {
+          for (let i = 0; i < (Number(order_price) - 5) * payMax.wx; i++) {
             newPrice.push((tempPrice -= 0.01).toFixed(2));
           }
           // 获取有效期内所有的未支付订单
@@ -146,6 +146,17 @@ class OrderController extends Controller {
           }
           const filterNewPrice = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i)); // 找出可以使用的金额
           newPrice = filterNewPrice(newPrice);
+
+          const canUseQrcode = await ctx.model.Qrcodes.findAll();
+
+          const filterArr = canUseQrcode.map((item) => item.dataValues.qr_price)
+
+          console.log('🌛', filterArr)
+
+          newPrice = newPrice.filter((price) => filterArr.indexOf(price) !== -1)
+          // newPrice = ['9.99']
+          console.log('❤️', newPrice)
+
           // 根据可以使用的金额查询收款二维码
           const alipay_url = await ctx.service.qrdecode.find_pay_url(newPrice, order_type);
           if (alipay_url.length === 0) { // 没有可用收款二维码
