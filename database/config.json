@@ -3,21 +3,21 @@
     "username": "root",
     "password": "WLSYD$ttxqXq9@",
     "database": "egg",
-    "host": "104.233.252.68",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "WLSYD$ttxqXq9@",
     "database": "egg_test",
-    "host": "104.233.252.68",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "WLSYD$ttxqXq9@",
     "database": "egg_production",
-    "host": "104.233.252.68",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
