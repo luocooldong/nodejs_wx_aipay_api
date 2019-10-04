@@ -17,7 +17,7 @@ module.exports = appInfo => {
     alipay: 20, // 支付宝可以任意设置减免金额，无需上传二维码!
   };
   // 设置 修改 订单有效期
-  config.orderValidity = 1; // 默认是5分钟 整数
+  config.orderValidity = 2; // 默认是5分钟 整数
   // 设置 修改 登录用户名和密码，为了节省一张数据表，默认写在配置里
   config.userInfo = {
     username: 'admin', // 账号
