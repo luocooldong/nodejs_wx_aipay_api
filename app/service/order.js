@@ -32,6 +32,7 @@ class OrderService extends Service {
     const { ctx } = this;
     const {
       order_id,
+      user_id,
       video_id,
       share_code,
       order_type,
@@ -41,8 +42,11 @@ class OrderService extends Service {
       extension,
       redirect_url,
     } = ctx.request.body;
+
+    console.log('fuck the code❤️❤️', user_id)
     return ctx.model.Orders.create({
       order_id,
+      user_id,
       video_id,
       share_code,
       order_type,
