@@ -146,7 +146,8 @@ class OrderController extends Controller {
       const orderPriceStatus = await ctx.model.Orders.findAll({ where: { order_type, order_price, pay_status: '未支付' } });
       if (order_type === 'wechat') {
         let tempPrice = order_price;
-        if (orderPriceStatus.length === 0) {
+        // if (orderPriceStatus.length === 0) {
+        if (false) {
           // 此金额可被使用 查出金额对应的 支付qr_url 生成订单
           const qr_data = await ctx.model.Qrcodes.findOne({ where: { qr_type: order_type, qr_price: order_price } });
           if (!qr_data) {
@@ -157,9 +158,16 @@ class OrderController extends Controller {
           // 此金额已经被使用了，查询其他二维码
           let newPrice = [];
           // 根据设置的随机立减查询二维码
-          for (let i = 0; i < (Number(order_price) - 5) * payMax.wx; i++) {
-            newPrice.push((tempPrice -= 0.01).toFixed(2));
+          if(Number(order_price) === 1) {
+            for (let i = 0; i < payMax.wx; i++) {
+              newPrice.push((tempPrice -= 0.01).toFixed(2));
+            }
+          }else{
+            for (let i = 0; i < (Number(order_price) - 3) * payMax.wx; i++) {
+              newPrice.push((tempPrice -= 0.01).toFixed(2));
+            }
           }
+
           // 获取有效期内所有的未支付订单
           const QrCodeResult = await ctx.service.order.find_more_price(newPrice, order_type);
           if (QrCodeResult.length !== 0) {
@@ -188,9 +196,11 @@ class OrderController extends Controller {
 
           alipay_url.sort((firstItem, secondItem) => Number(secondItem.dataValues.qr_price) -  Number(firstItem.dataValues.qr_price) )
 
-          // const index = Math.floor((Math.random() * (newPrice.length-1)));
+          let finalAlipayUrl = alipay_url.slice(0, 20)
+
+          const index = Math.floor((Math.random() * (finalAlipayUrl.length-1)));
           // 现在不用随机数了，直接取数据中的第一个
-          ctx.body = await ctx.service.order.createOrder(alipay_url[0].dataValues.qr_url, alipay_url[0].dataValues.qr_price);
+          ctx.body = await ctx.service.order.createOrder(finalAlipayUrl[index].dataValues.qr_url, finalAlipayUrl[index].dataValues.qr_price);
         }
       } else if (order_type === 'alipay') {
         const alipays = 'alipays://platformapi/startapp?appId=20000691&url='; // 2019年04月07日 原appid 20000067 替换成 20000691
