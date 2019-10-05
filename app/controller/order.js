@@ -5,8 +5,8 @@ const md5 = require('md5');
 
 class OrderController extends Controller {
 
-  // 查询单个交易是否成功
-  async query_pay_status() {
+  // 根据用户id查询该用户的所有产生的订单
+  async query_user_pay_status_list() {
     const { ctx, app } = this;
     const { user_id } = ctx.request.body;
     console.log(user_id, 'hello world')
