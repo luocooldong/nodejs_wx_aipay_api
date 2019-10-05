@@ -15,6 +15,8 @@ module.exports = app => {
   router.post('/api/order', controller.order.create_order); // 新增订单接口
   router.post('/api/queryPayStatus', controller.order.query_pay_status); //查询单条记录是否成功
 
+  router.post('/api/queryUserPayStatusList', controller.order.query_user_pay_status_list); //根据用户id查询该用户所有产生的订单列表
+
   // 处理订单支付状态
   router.post('/api/orderPayStatus', controller.order.orderPayStatus); // 处理订单支付状态
 };
