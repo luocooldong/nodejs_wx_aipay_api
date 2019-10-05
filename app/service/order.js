@@ -41,6 +41,7 @@ class OrderService extends Service {
       order_name,
       extension,
       redirect_url,
+      effective_time
     } = ctx.request.body;
 
     console.log('fuck the code❤️❤️', user_id)
@@ -57,6 +58,7 @@ class OrderService extends Service {
       redirect_url,
       qr_url,
       qr_price,
+      effective_time
     });
   }
   async find_more_price(data, order_type) {
