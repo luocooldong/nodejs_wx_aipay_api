@@ -13,11 +13,11 @@ class OrderController extends Controller {
     console.log('okokok月亮太阳')
     // 根据此订单id去查询这条订单是否支付成功
     try {
-      const userOrderItem_data = await ctx.model.Orders.findAll({ where: { user_id: user_id } });
+      const userOrderItem_data = await ctx.model.Orders.findAll({ where: { user_id: user_id, pay_status: '已支付' } });
 
       console.log(userOrderItem_data, 'hank hooked')
       if(!userOrderItem_data) {
-        throw 'order_id不存在';
+        throw 'user_id不存在';
       }
       ctx.body = userOrderItem_data
     }catch (e){
