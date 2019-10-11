@@ -64,7 +64,7 @@ module.exports = appInfo => {
   };
 
   config.cors = {
-    origin: 'http://h5lk6.com',//匹配规则  域名+端口  *则为全匹配
+    origin: '*',//匹配规则  域名+端口  *则为全匹配
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
   // 访问前缀，按需修改
