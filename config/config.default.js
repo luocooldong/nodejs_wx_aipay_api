@@ -8,7 +8,7 @@ module.exports = appInfo => {
   // 签名密匙妥善保管，不可泄露，务必修改
   config.secretkey = 'yioMe';
   // 绑定的域名， 务必修改
-  config.domain = 'http://27.102.128.236:7001'; // 请指定协议
+  config.domain = 'http://110.172.101.184:7001'; // 请指定协议
   // 支付宝userid pc登录 https://my.alipay.com/portal/i.htm 右键查看网页源代码搜索 userId 得到的值 和支付宝收款用户绑定
   config.alipayUserId = '2088012748271675';
   config.payMax = {
@@ -61,6 +61,11 @@ module.exports = appInfo => {
   // 上传模式请勿修改
   config.multipart = {
     mode: 'stream',
+  };
+
+  config.cors = {
+    origin: 'http://h5lk6.com',//匹配规则  域名+端口  *则为全匹配
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
   // 访问前缀，按需修改
   config.static = {
