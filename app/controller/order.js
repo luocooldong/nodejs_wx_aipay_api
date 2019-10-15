@@ -163,7 +163,7 @@ class OrderController extends Controller {
               newPrice.push((tempPrice -= 0.01).toFixed(2));
             }
           }else{
-            for (let i = 0; i < (Number(order_price) - 6) * payMax.wx; i++) {
+            for (let i = 0; i < (Number(order_price) - 5) * payMax.wx; i++) {
               newPrice.push((tempPrice -= 0.01).toFixed(2));
             }
           }
